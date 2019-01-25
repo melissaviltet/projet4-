@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Missives{% endblock %}
+
+{% block body %}
+
+    <div>
+        {{ form_start (contact_form) }}
+        {{ form_widget (contact_form) }}
+
+        <input type="submit" value="Envois de missive" class="btn btn-success">
+
+        {{ form_end (contact_form) }}
+    </div>
+
+{% endblock %}
