@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -32,6 +34,36 @@ class User implements UserInterface
      * @ORM\Column(type="string")
      */
     private $password;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $name;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $firstName;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $adress;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Gender", inversedBy="users")
+     */
+    private $gender;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Activity", inversedBy="users")
+     */
+    private $activity;
+
+    public function __construct()
+    {
+        $this->activity = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -109,5 +141,79 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getFirstName(): ?string
+    {
+        return $this->firstName;
+    }
+
+    public function setFirstName(string $firstName): self
+    {
+        $this->firstName = $firstName;
+
+        return $this;
+    }
+
+    public function getAdress(): ?string
+    {
+        return $this->adress;
+    }
+
+    public function setAdress(string $adress): self
+    {
+        $this->adress = $adress;
+
+        return $this;
+    }
+
+    public function getGender(): ?Gender
+    {
+        return $this->gender;
+    }
+
+    public function setGender(?Gender $gender): self
+    {
+        $this->gender = $gender;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Activity[]
+     */
+    public function getActivity(): Collection
+    {
+        return $this->activity;
+    }
+
+    public function addActivity(Activity $activity): self
+    {
+        if (!$this->activity->contains($activity)) {
+            $this->activity[] = $activity;
+        }
+
+        return $this;
+    }
+
+    public function removeActivity(Activity $activity): self
+    {
+        if ($this->activity->contains($activity)) {
+            $this->activity->removeElement($activity);
+        }
+
+        return $this;
     }
 }
