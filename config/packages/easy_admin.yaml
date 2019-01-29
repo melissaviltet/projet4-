@@ -1,8 +1,32 @@
 easy_admin:
   entities:
     # change the following to the namespaces of your own entities
-    - App\Entity\Gender
-    - App\Entity\Activity
-    - App\Entity\User
-    - App\Entity\Type
-    - App\Entity\Close
+    Activity:
+      class: App\Entity\Activity
+      list:
+        title: "Activités"
+    Close:
+      class: App\Entity\Close
+      list:
+        title: "Vétements"
+      form:
+        form_title: 'formulaire close'
+        fields:
+          - id
+          - {property: 'type', type: 'entity',  type_options: {'class': 'App\Entity\Type' , 'choice_label': 'name' }}
+
+    Gender:
+      class: App\Entity\Gender
+      list:
+        title: "Sexe"
+
+    User:
+      class: App\Entity\User
+     list:
+  title: "Coureurs"
+    Type:
+      class: App\Entity\Type
+      list:
+        title: "Catégories de vétements"
+
+
