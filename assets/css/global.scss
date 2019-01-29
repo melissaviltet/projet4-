@@ -34,12 +34,8 @@
 .subheading{
   color: white !important;
 }
-//.grouped {
-//  background-image: url("../images/group.jpg");
-//
-//  background-repeat: no-repeat;
-//  background-size: cover;
-//  width: 160%;
-//  height: 110vh;
-//  position: relative;
-//}
+
+.shop{
+  display: flex !important;
+  flex-wrap: wrap !important;
+}

@@ -4,3 +4,5 @@ easy_admin:
     - App\Entity\Gender
     - App\Entity\Activity
     - App\Entity\User
+    - App\Entity\Type
+    - App\Entity\Close
