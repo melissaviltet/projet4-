@@ -80,4 +80,5 @@ class Type
 
         return $this;
     }
+
 }

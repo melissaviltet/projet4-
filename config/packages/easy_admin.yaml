@@ -1,8 +1,63 @@
 easy_admin:
+  design:
+   brand_color: '#FF480B'
   entities:
     # change the following to the namespaces of your own entities
-    - App\Entity\Gender
-    - App\Entity\Activity
-    - App\Entity\User
-    - App\Entity\Type
-    - App\Entity\Close
+    Activity:
+      class: App\Entity\Activity
+      list:
+        title: "Activités"
+      form:
+        form_title: "sport"
+        fields:
+          - name
+
+
+    Close:
+      class: App\Entity\Close
+      list:
+        title: "Vétements"
+      form:
+        form_title: 'formulaire vétements'
+        fields:
+          - name
+          - description
+          - price
+          - {property: 'type', type: 'entity',  type_options: {'class': 'App\Entity\Type' , 'choice_label': 'name' }}
+          - { property: 'imageFile', type: 'file'}
+
+    Gender:
+      class: App\Entity\Gender
+      list:
+        title: "Sexe / catégory"
+      form:
+        form_title: 'Sexe'
+        fields:
+          - name
+
+
+    User:
+      class: App\Entity\User
+      list:
+        title: "Coureurs"
+        form:
+          form_title: 'formulaire Coureur'
+          fields:
+            - {property: 'gender', type: 'string', type_options: {'class': 'App\Entity\Gender' , 'choice_label':'Sexe / catégories'}}
+            - name
+#            - first_name
+#            - adress
+#            - email
+#            - passeword
+
+    Type:
+      class: App\Entity\Type
+      list:
+        title: "Catégories de vétements"
+      form:
+        form_title: 'Type de Fringue'
+        fields:
+          - name
+
+
+
