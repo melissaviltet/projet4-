@@ -24,6 +24,7 @@ easy_admin:
           - description
           - price
           - {property: 'type', type: 'entity',  type_options: {'class': 'App\Entity\Type' , 'choice_label': 'name' }}
+          - { property: 'imageFile', type: 'file'}
 
     Gender:
       class: App\Entity\Gender
