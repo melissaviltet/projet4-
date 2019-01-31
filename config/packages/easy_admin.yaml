@@ -43,7 +43,7 @@ easy_admin:
         form:
           form_title: 'formulaire Coureur'
           fields:
-            - {property: 'gender', type: 'string', type_options: {'class': 'App\Entity\Gender' , 'choice_label':'Sexe / catégories'}}
+            - {property: 'gender', type: 'entity'}
             - name
 #            - first_name
 #            - adress
