@@ -3,7 +3,7 @@
     <a class="navbar-brand js-scroll-trigger" href="#">
         <span class="d-block d-lg-none">Espace membre</span>
         <span class="d-none d-lg-block">
-          <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{{ asset('build/images/gtb.png') }}" alt="">
+          <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{{ asset('build/images/gtb.png') }}" alt="" href="{{ path('profil_home') }}">
         </span>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,7 +18,7 @@
                 <a class="nav-link js-scroll-trigger" href="#">la vie du club</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" href="#">Photos trombi</a>
+                <a class="nav-link js-scroll-trigger" href="{{ path('profil_trombi') }}">Les copains</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link js-scroll-trigger" href="{{ path('profil_collection') }}">Collection</a>

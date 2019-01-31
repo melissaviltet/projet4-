@@ -17,7 +17,6 @@ class OrganisationController extends AbstractController
     {
         $abouts = $aboutRepository->findAll();
         return $this->render('organisation/index.html.twig', [
-//            'controller_name' => 'OrganisationController',
             'abouts' => $abouts
         ]);
     }

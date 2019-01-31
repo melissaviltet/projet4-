@@ -11,7 +11,7 @@
                     <div class="d-flex justify-content-between mt-5">
                         <div class="row">
                             {% for close in type.closes %}
-                                <div class="col">
+                                <div class="col-sm-5">
                                     <div class="card" style="width: 18rem;">
                                         {% if close.filename is empty %}
                                             <img class="card-img-top" src="{{ asset('build/images/gtb.png') }}" alt="Non">
